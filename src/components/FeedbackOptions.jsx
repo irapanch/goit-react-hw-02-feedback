@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyledList, StyledBtn, StyledItem } from 'Apps.Style';
 
-const FeedbackOptions = ({ options, onLeaveFeedback }) => (
-  <div>
-    {options.map(option => (
-      <button key={option} onClick={() => onLeaveFeedback(option)}>
-        {option}
-      </button>
-    ))}
-  </div>
-);
+const FeedbackOptions = ({ handleBtnClick, arrForMarkup }) => {
+  return (
+    <StyledList>
+      {arrForMarkup.map(item => (
+        <StyledItem key={item}>
+          <StyledBtn onClick={() => handleBtnClick(item)}>{item}</StyledBtn>
+        </StyledItem>
+      ))}
+    </StyledList>
+  );
+};
 
 export default FeedbackOptions;
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
-  onLeaveFeedback: PropTypes.func.isRequired,
+  arrForMarkup: PropTypes.arrayOf(PropTypes.string),
+  handleBtnClick: PropTypes.func.isRequired,
 };

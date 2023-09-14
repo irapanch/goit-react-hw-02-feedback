@@ -11,5 +11,21 @@ export const StyledApp = styled.div`
 `;
 export const StyledBtn = styled.button`
   background-color: lightblue;
-  margin-right: 20px;
+  width: 72px;
+`;
+export const StyledList = styled.ul`
+  display: flex;
+
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+`;
+export const StyledStatList = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
+export const StyledItem = styled.li`
+  list-style: none;
+  text-transform: capitalize;
+  padding: 0;
 `;

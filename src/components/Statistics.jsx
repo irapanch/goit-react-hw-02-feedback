@@ -1,15 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyledItem, StyledStatList } from 'Apps.Style';
 
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
-  <div>
-    <div>Good: {good}</div>
-    <div>Neutral: {neutral}</div>
-    <div>Bad: {bad}</div>
-    <div>Total: {total}</div>
-    <div>Positive Feedbacks: {positivePercentage}%</div>
-  </div>
-);
+const Statistics = ({ total, positivePercentage, state }) => {
+  const stateForMarkup = Object.entries(state);
+  return (
+    <>
+      <StyledStatList>
+        {stateForMarkup.map(item => (
+          <StyledItem key={item}>
+            <p>
+              {item[0]}: {item[1]}
+            </p>
+          </StyledItem>
+        ))}
+
+        <StyledItem>
+          <p>Total: {total}</p>
+        </StyledItem>
+        <StyledItem>
+          <p>Positive Feedbacks: {positivePercentage}%</p>
+        </StyledItem>
+      </StyledStatList>
+    </>
+  );
+};
 
 export default Statistics;
 
